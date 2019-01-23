@@ -1,0 +1,60 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.5.0",
+	"appid": "wx50794ebcda998678",
+	"projectname": "foodie",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 2,
+			"list": [
+				{
+					"id": -1,
+					"name": "page2",
+					"pathName": "pages/page2/page2",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "report",
+					"pathName": "pages/report/report",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "ddctime",
+					"pathName": "pages/ddctime/ddctime",
+					"query": "",
+					"scene": "1011"
+				}
+			]
+		}
+	}
+}

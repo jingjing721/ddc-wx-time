@@ -1,0 +1,5 @@
+<!--pages/ddctime/ddctime.wxml-->
+<view class="index-bg" style="height:{{height}}px">
+  <image class="logo" mode="widthFix" src="../../img/hy_img_logo.png"></image>
+  <button class="btn" open-type="getUserInfo" bindgetuserinfo="bindNext" style="bottom:{{bottom}}rpx">开始旅程</button>
+</view>

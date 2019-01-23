@@ -1,0 +1,20 @@
+<!--pages/report/report.wxml-->
+<view class='content'>
+  <canvas class="report-canvas" canvas-id="report-canvas" style="height:{{height}}px;width:375px;"></canvas>
+  <!-- 返回按钮 -->
+  <view class="back-btn" bindtap="backPage" style="top:{{backTop}}px">
+    <image src="../../img/btn_back.png" mode="widthFix"></image>
+  </view>
+  <!-- 页面长图 -->
+  <image src="{{shareImg}}" mode="widthFix" style="width:750rpx"></image>
+</view>
+<view class="btn-box">
+  <button class="save-btn" wx:if="{{saveImgBtnHidden}}" bindtap="canvasSave"></button>
+  <button class="save-btn" wx:if="{{openSettingBtnHidden}}" bindopensetting='handleSetting' open-type="openSetting"></button>
+  <button class="share-btn" data-id="shareBtn" open-type="share">邀请朋友参加</button>
+</view>
+<!-- toast -->
+<view class='toast' wx:if="{{toastShow}}">
+  <image wx:if="{{toastSrc!=''}}" class='icon' src='{{toastSrc}}'></image>
+  <view>{{toastText}}</view>
+</view>

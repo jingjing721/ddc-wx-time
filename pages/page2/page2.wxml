@@ -1,0 +1,83 @@
+<!--pages/page2/page2.wxml-->
+<view class='bg'>
+  <!-- 返回按钮 -->
+  <view class="back-btn" bindtap="backPage" style="top:{{backTop}}px">
+    <image src="../../img/btn_back.png" mode="widthFix"></image>
+  </view>
+  <!--定位tab-->
+  <view class="{{tabFlag?'show':'hidden'}}">
+    <view style='background:#0E1A63;height:138rpx;'></view>
+    <scroll-view
+        class="tab"
+        scroll-x
+        scroll-with-animation="true"
+      >
+      <block wx:for="{{classiy}}" wx:key="">
+        <view class="tab-item {{currentTab==index?'act':''}}" data-index="{{index}}" bindtap="clickTap">{{item.foodStyleName}}</view>
+      </block>
+    </scroll-view>
+  </view>
+  <!-- 滚动区域 -->
+  <scroll-view
+    style="height:{{height}}px"
+    scroll-y
+    bindscroll="scroll"
+    scroll-top="{{scrollTop}}rpx"
+    scroll-with-animation="true">
+    <image class='title-img' src='../../img/bz_img_bghead.png'>
+      <view class="normal-tab">
+        <scroll-view
+          class="tab"
+          scroll-x
+          scroll-with-animation="true"
+        >
+            <block wx:for="{{classiy}}" wx:key="">
+              <view class="tab-item {{currentTab==index?'act':''}}" data-index="{{index}}" bindtap="clickTap">{{item.foodStyleName}}</view>
+            </block>
+        </scroll-view>
+      </view>
+    </image> 
+    <!-- 内容区域 -->
+    <view>
+      <!-- 菜系  -->
+      <block wx:for="{{list}}" wx:key="">
+        <view data-index="{{index}}" id="scroll{{index}}" class="list-box">
+          <image wx:if="{{index==0 || index==3}}" class='dish-bg' src='../../img/bz_img_lc1.png'>
+            <view class="dish-title" >{{item.foodStyleName}}</view>
+          </image>
+          <image wx:if="{{index==1 || index==4}}" class='dish-bg' src='../../img/bz_img_lc2.png'>
+            <view class="dish-title" >{{item.foodStyleName}}</view>
+          </image>
+          <image wx:if="{{index==2 || index==5}}" class='dish-bg' src='../../img/bz_img_lc3.png'>
+            <view class="dish-title" >{{item.foodStyleName}}</view>
+          </image>
+          <view class="dish-box">
+            <block wx:for="{{item.dishes}}" wx:key="" >
+                <view class="dish-item {{item.flag?'select':''}}" data-classiy='{{item.index}}' data-index="{{index}}" bindtap='selectDish'>{{item.foodName}}</view>
+            </block>
+          </view>
+        </view>
+      </block>
+      <!-- 自定义输入 -->
+      <image class='dish-bg' src='../../img/bz_img_lc4.png'>
+        <view class="dish-title" >我吃过的你们不知道</view>
+      </image>
+      <input class='custom-text' placeholder-style="color:#76B0FE;" bindinput="bindinput" placeholder="偷偷告诉你..." confirm-type='done' type='text'></input>
+      <view style='height:150px;'></view>
+    </view>
+  </scroll-view>
+
+  <!-- 按钮区域 -->
+  <view class="btn-bg">
+    <view class="btn {{btnFlag?'btn-normal':'btn-unable'}}" bindtap='submit'>生成报告</view>
+  </view>
+
+  <!-- toast -->
+  <view class='toast' wx:if="{{toastShow}}">
+    <image wx:if="{{toastSrc!=''}}" class='icon' src='{{toastSrc}}'></image>
+    <view>{{toastText}}</view>
+  </view>
+
+</view>
+
+

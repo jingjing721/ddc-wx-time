@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/ddctime/ddctime",
+    "pages/page2/page2",
+    "pages/report/report"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "foodie",
+    "navigationBarTextStyle": "#fff",
+    "navigationStyle": "custom"
+  }
+}
