@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.5.0",
+	"libVersion": "2.5.1",
 	"appid": "wx50794ebcda998678",
 	"projectname": "foodie",
 	"isGameTourist": false,
