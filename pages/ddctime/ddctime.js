@@ -34,6 +34,9 @@ Page({
     }else{
       this.data.otherOpenId = options.uid ? options.uid:'';
     }
+    this.setData({//样式-重新给页面高度
+      height: wx.getSystemInfoSync().windowHeight
+    })
     console.log('------otherOpenId------'+this.data.otherOpenId)
     if (parseInt(version) < 250 && app.utils.getCache('versionFlag') != true) {
       wx.showModal({

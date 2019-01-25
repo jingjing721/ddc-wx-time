@@ -1,4 +1,4 @@
-const IPHOST = 'https://mcn-app-s.daydaycook.com.cn'; // 域名地址
+const IPHOST = 'https://mcn-app-t.daydaycook.com.cn'; // 域名地址
 const SYSTEM = 'program'; // 路径中系统
 const VERSION = 'v1.0.0' // 当前接口版本
 import * as utils from 'util.js'
