@@ -57,7 +57,8 @@ Page({
       this.data.resultData =  res.data;
       let imageArray = [];   //头像
       console.log('-------pkAvatarUrl-------'+this.data.resultData.pkAvatarUrl)
-      imageArray.push(this.getImagePromiseArr(utils.getCache('avatarUrl')));
+      let myavatarUrl = utils.getCache('avatarUrl') || 'https://mcn-video.daydaycook.com.cn/4f4ea624af9e411f83d9ea155d8d9c87.png';
+      imageArray.push(this.getImagePromiseArr(myavatarUrl));
       if (this.data.resultData.pkAvatarUrl){//PK对方头像 存在
         imageArray.push(this.getImagePromiseArr(this.data.resultData.pkAvatarUrl))
         if (this.data.resultData.users != null){// 饭搭子头像 存在
@@ -81,7 +82,7 @@ Page({
           this.data.type = 2 //渲染类型  两种类型都不存在
         }
       }
-      imageArray.push(this.getImagePromiseArr(utils.getCache('qrCode')));
+      imageArray.push(this.getImagePromiseArr(this.data.resultData.qrCode));
       Promise.all(imageArray).then((sucRes) => { 
         //背景图
         this.drawBg();
@@ -120,6 +121,8 @@ Page({
       }, () => {
         app.utils.showToast('图片资源获取失败, 请返回上一页重新拉取资源');
       })
+    }).catch((res) => {
+      app.utils.showToast(res);
     })
   },
   //绘背景图片
@@ -298,7 +301,7 @@ Page({
         url: imgSrc,
         success: resolve,
         fail: function (res) {
-          console.log(res)
+          console.log(imgSrc+'---'+res)
           app.utils.showToast('图片资源获取失败, 请返回上一页重新拉取资源');
         }
       })
@@ -420,7 +423,7 @@ Page({
   onShareAppMessage(options){
     let that = this;
     let shareObj = {
-      title: "日日煮味蕾时光机", 
+      title: "邀请你来测口味", 
       path: '/pages/ddctime/ddctime?uid=' + utils.getCache('uid'),
       imageUrl: '',  //自定义图片路径
     }

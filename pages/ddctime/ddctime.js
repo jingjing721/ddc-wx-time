@@ -77,7 +77,6 @@ Page({
         app.http.$_post('putUserInfo', data).then((res) => { //生成uid 和小程序二维码qrCode
           wx.hideToast();
           app.utils.setCache('uid', res.data.uid);
-          app.utils.setCache('qrCode', res.data.qrCode);
           app.utils.setCache('userInfo', e.detail.userInfo);
           app.utils.setCache('avatarUrl', e.detail.userInfo.avatarUrl);
           app.utils.navigateTo('../page2/page2');

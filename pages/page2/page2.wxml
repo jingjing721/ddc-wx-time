@@ -1,4 +1,5 @@
 <!--pages/page2/page2.wxml-->
+<form report-submit="true" bindsubmit="submit">
 <view class='bg'>
   <!-- 返回按钮 -->
   <view class="back-btn" bindtap="backPage" style="top:{{backTop}}px">
@@ -69,7 +70,7 @@
 
   <!-- 按钮区域 -->
   <view class="btn-bg">
-    <view class="btn {{btnFlag?'btn-normal':'btn-unable'}}" bindtap='submit'>生成报告</view>
+    <button class="btn {{btnFlag?'btn-normal':'btn-unable'}}" form-type="submit">生成报告</button>
   </view>
 
   <!-- toast -->
@@ -79,5 +80,6 @@
   </view>
 
 </view>
+</form>
 
 

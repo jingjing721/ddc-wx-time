@@ -171,39 +171,47 @@ Page({
     this.setBtnClass()
   },
   //提交
-  submit(){
-    if (!this.data.btnFlag){//用户没有选择菜品 也没有填写菜品  不能提交
-      this.setData({
-        toastSrc: '../../img/zt_icon_notice.png',
-        toastText:'千挑万选，总有一款你吃过',
-        toastShow:true
-      })
-      this.hideToast();
-    }else{//可提交数据
-      if (this.data.select.length == 0 && this.data.inpValue){
+  submit(e){
+    let formId = e.detail.formId || '';
+    if (app.utils.getCache('hasReport') == true) {//若已经生产报告 则直接跳转到报告页面
+      app.utils.navigateTo('../report/report');
+    }else{
+      if (!this.data.btnFlag) {//用户没有选择菜品 也没有填写菜品  不能提交
         this.setData({
-          toastSrc: '',
-          toastText: '品味真独特',
+          toastSrc: '../../img/zt_icon_notice.png',
+          toastText: '千挑万选，总有一款你吃过',
           toastShow: true
         })
-      } else{
-        this.setData({
-          toastSrc: '',
-          toastText: '今年吃得不错嘛，明年继续哦',
-          toastShow: true
-        })
-      }
-      this.hideToast();
-      setTimeout(() => {
-        let data = {
-          pageName: '年度总结菜谱',
-          ids: this.data.select.join(','),
-          ownerFood: this.data.inpValue
+        this.hideToast();
+      } else {//可提交数据
+        if (this.data.select.length == 0 && this.data.inpValue) {
+          this.setData({
+            toastSrc: '',
+            toastText: '品味真独特',
+            toastShow: true
+          })
+        } else {
+          this.setData({
+            toastSrc: '',
+            toastText: '今年吃得不错嘛，明年继续哦',
+            toastShow: true
+          })
         }
-        app.http.$_post('clickNext', data).then((res) => {
-          app.utils.navigateTo('../report/report');
-        })
-      }, 1500)
+        this.hideToast();
+        setTimeout(() => {
+          let data = {
+            pageName: '年度总结菜谱',
+            ids: this.data.select.join(','),
+            ownerFood: this.data.inpValue,
+            formId: formId
+          }
+          app.http.$_post('clickNext', data).then((res) => {
+            app.utils.navigateTo('../report/report');
+          }).catch((res)=>{
+            app.utils.showToast(res);
+          })
+        }, 1000)
+      }
     }
   },
   //隐藏Toast 提示

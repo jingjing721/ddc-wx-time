@@ -44,7 +44,7 @@ function httpPromise(url, params, method) {
 					if (res.data.code === '0000') { // 数据 0000 成功返回
 						resolve(res.data);
 					} else {
-						resolve(res.message)
+            reject(res.data.message);
 					}
 				} else {
 					reject(res.data);
