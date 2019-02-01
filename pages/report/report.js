@@ -74,7 +74,7 @@ Page({
           this.data.resultData.users.map((item, index) => {
             if (item.avatarUrl !== null || item.avatarUrl !== '') {
               imageArray.push(this.getImagePromiseArr(item.avatarUrl))
-              this.data.type = 1 //渲染类型
+              // this.data.type = 1 //渲染类型
             }
           })
           this.data.type = 3 //渲染类型  只有饭搭子类型存在

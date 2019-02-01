@@ -9,9 +9,9 @@
   <image src="{{shareImg}}" mode="widthFix" style="width:750rpx"></image>
 </view>
 <view class="btn-box">
-  <button class="save-btn" wx:if="{{saveImgBtnHidden}}" bindtap="canvasSave"></button>
-  <button class="save-btn" wx:if="{{openSettingBtnHidden}}" bindopensetting='handleSetting' open-type="openSetting"></button>
-  <button class="share-btn" data-id="shareBtn" open-type="share">邀请朋友参加</button>
+  <button class="save-btn" wx:if="{{saveImgBtnHidden}}" bindtap="canvasSave">保存图片到相册</button>
+  <button class="save-btn" wx:if="{{openSettingBtnHidden}}" bindopensetting='handleSetting' open-type="openSetting">保存图片到相册</button>
+  <!-- <button class="share-btn" data-id="shareBtn" open-type="share">邀请朋友参加</button> -->
 </view>
 <!-- toast -->
 <view class='toast' wx:if="{{toastShow}}">
